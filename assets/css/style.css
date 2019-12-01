@@ -7,7 +7,7 @@ body {
     text-align: center;
     margin-left: 5%;
     background: lightgray;
-    color: white;
+    color: black;
 }
 
 .trainTimes {
@@ -17,14 +17,14 @@ body {
 
 .tableContainer {
     background: lightgrey;
-    color: white;
+    color: black;
     font-weight: bold;
     padding: .9%;
     margin-bottom: 0;
 }
 
 .table {
-    color: white;
+    color: black;
 }
 
 .tableHeader p {
@@ -38,7 +38,7 @@ body {
 }
 
 .inputHeader {
-    color: white;
+    color: black;
     font-weight: bold;
     padding: 5px;
     background: lightgrey;
