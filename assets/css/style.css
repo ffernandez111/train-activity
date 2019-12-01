@@ -1,0 +1,60 @@
+body {
+    font-family: 'Alatsi', sans-serif;
+}
+
+.jumbotron.jumbotron-fluid {
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    background: lightgray;
+    color: white;
+}
+
+.trainTimes {
+    font-weight: bolder;
+    color: black;
+}
+
+.tableContainer {
+    background: lightgrey;
+    color: white;
+    font-weight: bold;
+    padding: .9%;
+    margin-bottom: 0;
+}
+
+.table {
+    color: white;
+}
+
+.tableHeader p {
+    margin-bottom: 0;
+}
+
+.inputContainer {
+    width: 90%;
+    margin-left: 5%;
+    border: solid 2px lightgrey;
+}
+
+.inputHeader {
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    background: lightgrey;
+    margin-bottom: 0;
+}
+
+.inputHeader p {
+    margin-bottom: 0;
+}
+
+.submit {
+    background: grey;
+    color: white;
+    margin: 3px;
+}
+
+.submit:hover {
+    opacity: 0.5;
+}
