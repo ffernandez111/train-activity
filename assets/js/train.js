@@ -17,7 +17,7 @@ $(document).ready(function() {
 
             var minutesAway;
 
-            var nextArrival
+            var nextArrival;
 
 
 

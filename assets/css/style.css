@@ -6,8 +6,20 @@ body {
     width: 90%;
     text-align: center;
     margin-left: 5%;
-    background: lightgray;
+    background: white;
     color: black;
+}
+
+h1 {
+    background: lightgray;
+}
+
+.lead {
+    background: lightgray;
+}
+
+#currentSchedule {
+    float: left;
 }
 
 .trainTimes {
@@ -16,7 +28,7 @@ body {
 }
 
 .tableContainer {
-    background: lightgrey;
+    background: white;
     color: black;
     font-weight: bold;
     padding: .9%;
@@ -31,10 +43,15 @@ body {
     margin-bottom: 0;
 }
 
+label {
+    float: left;
+    font-weight: bold;
+}
+
 .inputContainer {
     width: 90%;
     margin-left: 5%;
-    border: solid 2px lightgrey;
+    border: solid 2px black;
 }
 
 .inputHeader {
