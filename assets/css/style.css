@@ -18,10 +18,6 @@ h1 {
     background: lightgray;
 }
 
-#currentSchedule {
-    float: left;
-}
-
 .trainTimes {
     font-weight: bolder;
     color: black;
@@ -31,16 +27,22 @@ h1 {
     background: white;
     color: black;
     font-weight: bold;
-    padding: .9%;
+    padding: 5px;
     margin-bottom: 0;
+    margin-left: 70px;
+    border: solid 2px black;
+    width: 90%;
+}
+
+.tableHeader {
+    color: black;
+    font-weight: bold;
+    padding: 0.1%;
+    background: lightgrey;
 }
 
 .table {
     color: black;
-}
-
-.tableHeader p {
-    margin-bottom: 0;
 }
 
 label {
@@ -57,7 +59,7 @@ label {
 .inputHeader {
     color: black;
     font-weight: bold;
-    padding: 5px;
+    padding: 0.5%;
     background: lightgrey;
     margin-bottom: 0;
 }
