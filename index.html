@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+
     <!--- Bootstrap CDN --->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -13,12 +17,6 @@
     <!-- linking css-->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
-    <!-- jQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-    </script>
-
-    <!-- linking JavaScript -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
     <!--- linking momentJS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
@@ -28,6 +26,8 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
+    <!-- linking JavaScript -->
+    <script type="text/javascript" src="./assets/js/train.js"></script>
 
     <title>Train Schedule</title>
 
@@ -88,62 +88,9 @@
                     <label for="frequency">Frequency (min)</label>
                     <input type="value" class="form-control" id="frequencyInput">
                 </div>
-                <button class="submit" id="submitButton">Submit</button>
+                <button class="submit" id="submitButton" type="submit">Submit</button>
             </form>
         </div>
 </body>
 
 </html>
-
-<!-- Script -->
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyA-YKhfPEy-Ok3RQzp2zJSCFuv2x13vH4c",
-        authDomain: "bootcamp-fa86c.firebaseapp.com",
-        databaseURL: "https://bootcamp-fa86c.firebaseio.com",
-        projectId: "bootcamp-fa86c",
-        storageBucket: "bootcamp-fa86c.appspot.com",
-        messagingSenderId: "86878239138",
-        appId: "1:86878239138:web:33ebf0d7896043ea4f9afb",
-        measurementId: "G-DRB3ZRKH7Y"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-</script>
-
-<script>
-    // Create a variable to reference the database.
-    var database = firebase.database();
-
-    // Initial Values
-    var destination = "";
-    var nextTrainName = "";
-    var lastTrainName = "";
-    var newTrainName = "";
-    var lastTrainName = "";
-    var frequency = "";
-    var minutesAway = "";
-
-
-    // Capture Button Click
-    $("#add-train").on("click", function(event) {
-        event.preventDefault();
-
-        // Grabbed values from text boxes
-        trainName = $("#name-input").val().trim();
-        destination = $("#destination-input").val().trim();
-        firstTrainTime = $("#firstTrainTime-input").val().trim();
-        frequency = $("#frequency-input").val().trim();
-
-        // Code for handling the push
-        database.ref().push({
-            trainName: trainName,
-            destination: destination,
-            firstTrainTime: firstTrainTime,
-            frequency: frequency,
-            dateAdded: firebase.database.ServerValue.TIMESTAMP
-        });
-
-    });
