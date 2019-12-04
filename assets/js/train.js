@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 
 
-    // Code for Friebase data row adding in html document
+    // Code for Firebase data row adding in html document
 
 
 
@@ -80,8 +80,8 @@ $("#submitButton").on("click", function(event) {
     console.log(trainName)
     destination = $("#destinationInput").val().trim();
     console.log(destination)
-    firstTrainTime = $("#firstTrainTimeInput").val().trim();
-    console.log(firstTrainName)
+    firstTrainTime = $("#firstTrainInput").val().trim();
+    console.log(firstTrainInput)
     frequency = $("#frequencyInput").val().trim();
     console.log(frequency)
 
