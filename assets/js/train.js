@@ -81,7 +81,7 @@ $("#submitButton").on("click", function(event) {
     destination = $("#destinationInput").val().trim();
     console.log(destination)
     firstTrainTime = $("#firstTrainInput").val().trim();
-    console.log(firstTrainInput)
+    console.log(firstTrainTime)
     frequency = $("#frequencyInput").val().trim();
     console.log(frequency)
 
