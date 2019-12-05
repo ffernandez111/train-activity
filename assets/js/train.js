@@ -87,12 +87,57 @@ $("#submitButton").on("click", function(event) {
 
 
     // Code for handling the push
-    database.ref().push({
+    firebase.database().ref().push({
         trainName: trainName,
         destination: destination,
         firstTrainTime: firstTrainTime,
         frequency: frequency,
+        nextArrival: nextArrival,
+        minutesAway: minutesAway,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
+
     });
+
+    // 3. Create Firebase event for adding trains to the database and a row in the html when a user adds an entry
+    database.ref().on("child_added", function(childSnapshot) {
+        console.log(childSnapshot.val());
+
+        // Store everything into a variable.
+        var trainName = childSnapshot.val().trainName;
+        var destination = childSnapshot.val().destination;
+        var frequency = childSnapshot.val().frequency;
+        var nextArrival = childSnapshot.val().nextArrival;
+        var minutesAway = childSnapshot.val().minutesAway;
+
+        // train Info
+        console.log(trainName);
+        console.log(destination);
+        console.log(frequency);
+        console.log(nextArrival);
+        console.log(minutesAway);
+
+
+        var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
+
+        var empMonths = moment().diff(moment(empStart, "X"), "months");
+        console.log(empMonths);
+
+        var empBilled = empMonths * empRate;
+        console.log(empBilled);
+
+        // Create the new row
+        var newRow = $("<tr>").append(
+            $("<td>").text(trainName),
+            $("<td>").text(destination),
+            $("<td>").text(frequency),
+            $("<td>").text(nextArrival),
+            $("<td>").text(empRate),
+            $("<td>").text(empBilled)
+        );
+
+        // Append the new row to the table
+        $("#scheduleTable > tbody").append(newRow);
+    });
+
 
 });
