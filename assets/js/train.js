@@ -80,7 +80,9 @@ $("#submitButton").on("click", function(event) {
     console.log(trainName)
     destination = $("#destinationInput").val().trim();
     console.log(destination)
-    firstTrainTime = $("#firstTrainInput").val().trim();
+    firstTrainTime = moment($("#firstTrainInput").val().trim(), "HH:mm").format("X");
+    var trainStartPretty = moment.unix(firstTrainTime).format("HH:mm");
+    var trainMinutes = moment().diff(moment(firstTrainTime, "X"), "minutes");
     console.log(firstTrainTime)
     frequency = $("#frequencyInput").val().trim();
     console.log(frequency)
@@ -92,8 +94,6 @@ $("#submitButton").on("click", function(event) {
         destination: destination,
         firstTrainTime: firstTrainTime,
         frequency: frequency,
-        nextArrival: nextArrival,
-        minutesAway: minutesAway,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
 
     });
@@ -117,13 +117,8 @@ $("#submitButton").on("click", function(event) {
         console.log(minutesAway);
 
 
-        var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
 
-        var empMonths = moment().diff(moment(empStart, "X"), "months");
-        console.log(empMonths);
 
-        var empBilled = empMonths * empRate;
-        console.log(empBilled);
 
         // Create the new row
         var newRow = $("<tr>").append(
@@ -131,8 +126,6 @@ $("#submitButton").on("click", function(event) {
             $("<td>").text(destination),
             $("<td>").text(frequency),
             $("<td>").text(nextArrival),
-            $("<td>").text(empRate),
-            $("<td>").text(empBilled)
         );
 
         // Append the new row to the table
